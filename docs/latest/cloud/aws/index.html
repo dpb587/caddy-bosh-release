@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Web Services | caddy-bosh-release</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-37464314-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <style type="text/css">
+      body > .section {
+        padding-top: 1.75rem;
+      }
+      nav#TableOfContents > ul,
+      nav#TableOfContents > ul > li > ul {
+        list-style: none;
+        margin-left: 0;
+      }
+      nav#TableOfContents > ul > li > a {
+        display: none;
+      }
+    </style>
+  </head>
+  <body><nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://dpb587.github.io/caddy-bosh-release">
+      
+        <img height="28" src="https://github.com/dpb587.png" style="border-radius:4px;margin-right:0.5rem">
+      
+      caddy-bosh-release
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarExpanded" class="navbar-menu">
+    <div class="navbar-start">
+      
+        <a class="navbar-item" href="/caddy-bosh-release/docs/latest/">docs</a>
+      
+        <a class="navbar-item" href="/caddy-bosh-release/releases/">releases</a>
+      
+        <a class="navbar-item" href="https://github.com/dpb587/caddy-bosh-release">github</a>
+      
+    </div>
+
+    <div class="navbar-end"><div class="navbar-item" style="padding-left:0">
+          <a class="navbar-item" href="https://bosh.io/" title="BOSH" style="background-color:#fff;border-radius:4px;padding:.5rem">
+            <img height="28" src="/caddy-bosh-release/img/cff-bosh.png" style="border-radius:4px">
+          </a>
+        </div></div>
+  </div>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+</script>
+
+<section class="section">
+      <div class="columns">
+        <div class="column">
+  
+  <aside class="menu">
+    <ul class="menu-list">
+<li><a href="/caddy-bosh-release/docs/latest/">Overview</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/getting-started/">Getting Started</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/technical-notes/">Technical Notes</a></li>
+</ul>
+
+<p class="menu-label">Cloud Providers</p>
+
+<ul class="menu-list">
+<li><a class="is-active" href="/caddy-bosh-release/docs/latest/cloud/aws/">Amazon Web Services</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/google/">Google Cloud</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/azure/">Microsoft Azure</a></li>
+</ul>
+
+
+
+
+
+<p class="menu-label">Latest Release (v0.7.1)</p>
+<ul class="menu-list">
+  
+  <li><a href="/caddy-bosh-release/releases/v0.7.1/">Overview</a></li>
+  
+    <li><a href="/caddy-bosh-release/jobs/caddy/v0.7.1/">caddy</a></li>
+  
+</ul>
+
+
+  </aside>
+
+</div>
+        <div class="column is-four-fifths">
+          
+  <div class="columns">
+    <div class="column is-four-fifths">
+  
+  
+
+  
+    
+      
+      
+    
+  
+
+  
+    
+    
+    
+      
+    
+
+    <div class="is-size-5 is-pulled-right">
+      <a href="https://github.com/dpb587/caddy-bosh-release/blob/master/docs/cloud/aws.md" rel="noopener" target="_blank" title="Contribute changes to this page" style="opacity:0.7">
+        <i class="fas fa-pencil-alt"></i>
+      </a>
+    </div>
+  
+
+<article class="content">
+
+<h1 id="amazon-web-services">Amazon Web Services</h1>
+
+<h2 id="using-dns-verification">Using DNS Verification</h2>
+
+<p>If you are using <a href="https://aws.amazon.com/route53/">Route 53</a>, configure your service account key through your <code>AWS_*</code> environment variable:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">caddyfile: <span style="color:#e6db74">|
+</span><span style="color:#e6db74">  ...
+</span><span style="color:#e6db74">  tls {
+</span><span style="color:#e6db74">    dns route53
+</span><span style="color:#e6db74">  }</span>
+env:
+  AWS_ACCESS_KEY_ID: AKIA...
+  AWS_SECRET_ACCESS_KEY: ...
+  AWS_HOSTED_ZONE_ID: Z... <span style="color:#75715e"># optional</span></code></pre></div>
+<h2 id="limited-iam-policy">Limited IAM Policy</h2>
+
+<p>Consider using credentials from an account which has limited access to update the <code>TXT</code> record for <code>_acme-challenge.*</code> (note <code>_acme-challenge</code> can be delegated via <code>NS</code> records).</p>
+
+<p>The following policy restricts updates for a single <code>{{ZONE_ID}}</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+      <span style="color:#f92672">&#34;Action&#34;</span>: [
+        <span style="color:#e6db74">&#34;route53:GetChange&#34;</span>
+      ],
+      <span style="color:#f92672">&#34;Resource&#34;</span>: [
+        <span style="color:#e6db74">&#34;*&#34;</span>
+      ]
+    },
+    {
+      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+      <span style="color:#f92672">&#34;Action&#34;</span>: [
+        <span style="color:#e6db74">&#34;route53:ChangeResourceRecordSets&#34;</span>,
+        <span style="color:#e6db74">&#34;route53:ListResourceRecordSets&#34;</span>
+      ],
+      <span style="color:#f92672">&#34;Resource&#34;</span>: [
+        <span style="color:#e6db74">&#34;arn:aws:route53:::hostedzone/{{ZONE_ID}}&#34;</span>
+      ]
+    }
+  ]
+}</code></pre></div></article>
+</div>
+
+  <div class="column table-of-contents is-hidden-mobile">
+    <div class="content is-size-7">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#amazon-web-services">Amazon Web Services</a>
+<ul>
+<li><a href="#using-dns-verification">Using DNS Verification</a></li>
+<li><a href="#limited-iam-policy">Limited IAM Policy</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+        </div>
+      </div>
+    </section><footer class="footer">
+  <div class="content has-text-centered">
+    
+      <a href="https://github.com/dpb587/caddy-bosh-release">Caddy BOSH Release</a> by <a href="https://dpb587.me/">Danny Berger</a>.
+    
+  </div>
+</footer>
+</body>
+</html>

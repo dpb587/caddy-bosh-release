@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+    Releases | caddy-bosh-release</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-37464314-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <style type="text/css">
+      body > .section {
+        padding-top: 1.75rem;
+      }
+      nav#TableOfContents > ul,
+      nav#TableOfContents > ul > li > ul {
+        list-style: none;
+        margin-left: 0;
+      }
+      nav#TableOfContents > ul > li > a {
+        display: none;
+      }
+    </style>
+  </head>
+  <body><nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://dpb587.github.io/caddy-bosh-release">
+      
+        <img height="28" src="https://github.com/dpb587.png" style="border-radius:4px;margin-right:0.5rem">
+      
+      caddy-bosh-release
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarExpanded" class="navbar-menu">
+    <div class="navbar-start">
+      
+        <a class="navbar-item" href="/caddy-bosh-release/docs/latest/">docs</a>
+      
+        <a class="navbar-item" href="/caddy-bosh-release/releases/">releases</a>
+      
+        <a class="navbar-item" href="https://github.com/dpb587/caddy-bosh-release">github</a>
+      
+    </div>
+
+    <div class="navbar-end"><div class="navbar-item" style="padding-left:0">
+          <a class="navbar-item" href="https://bosh.io/" title="BOSH" style="background-color:#fff;border-radius:4px;padding:.5rem">
+            <img height="28" src="/caddy-bosh-release/img/cff-bosh.png" style="border-radius:4px">
+          </a>
+        </div></div>
+  </div>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+</script>
+
+<section class="section">
+      <div class="columns">
+        <div class="column">
+  
+  <aside class="menu">
+    <ul class="menu-list">
+<li><a href="/caddy-bosh-release/docs/latest/">Overview</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/getting-started/">Getting Started</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/technical-notes/">Technical Notes</a></li>
+</ul>
+
+<p class="menu-label">Cloud Providers</p>
+
+<ul class="menu-list">
+<li><a href="/caddy-bosh-release/docs/latest/cloud/aws/">Amazon Web Services</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/google/">Google Cloud</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/azure/">Microsoft Azure</a></li>
+</ul>
+
+
+
+
+
+<p class="menu-label">Latest Release (v0.7.1)</p>
+<ul class="menu-list">
+  
+  <li><a href="/caddy-bosh-release/releases/v0.7.1/">Overview</a></li>
+  
+    <li><a href="/caddy-bosh-release/jobs/caddy/v0.7.1/">caddy</a></li>
+  
+</ul>
+
+
+  </aside>
+
+</div>
+        <div class="column is-four-fifths">
+          
+  <div class="columns">
+    <div class="column is-four-fifths">
+      <article class="content">
+        <h1 id="releases">Releases</h1><article class="content"></article>
+
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.7.1"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.7.1/">v0.7.1</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2020-07-16T13:51:49-07:00" title="2020-07-16T13:51:49-07:00">July 16, 2020</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                      <div class="level-item">
+                        <span class="tag is-primary is-medium">latest</span>
+                      </div>
+                    
+                  </div>
+                </nav><article class="content"><p><strong>Dependencies</strong></p>
+
+<ul>
+<li>Upgrade to go/1.14.5.</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.7.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.7.0/">v0.7.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2019-10-01T09:03:20-07:00" title="2019-10-01T09:03:20-07:00">October 1, 2019</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p><strong>Dependencies</strong></p>
+
+<ul>
+<li>Upgrade to go/1.13.1.</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.6.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.6.0/">v0.6.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2019-05-04T21:32:07-07:00" title="2019-05-04T21:32:07-07:00">May 4, 2019</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p><strong>Enhancements</strong></p>
+
+<ul>
+<li>Allow default HTTP and HTTPS port to be configured.</li>
+</ul>
+
+<p><strong>Dependencies</strong></p>
+
+<ul>
+<li>go 1.12.4 (<a href="https://golang.org/doc/go1.12">changelog</a>; was 1.12.3)</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.5.1"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.5.1/">v0.5.1</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2019-04-09T05:39:17-07:00" title="2019-04-09T05:39:17-07:00">April 9, 2019</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Dependencies</p>
+
+<ul>
+<li>go 1.12.3 (<a href="https://golang.org/doc/go1.12">changelog</a>; was 1.12)</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.5.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.5.0/">v0.5.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2019-03-05T18:52:38-08:00" title="2019-03-05T18:52:38-08:00">March 5, 2019</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Breaking Changes</p>
+
+<ul>
+<li>When using Route 53 DNS Verification, the IAM Action of <code>route53:ListResourceRecordSets</code> is now also required (caused by dependency <a href="https://github.com/go-acme/lego/commit/20d50a559f077fe8d392957aa1e362041ab64f3c">changes</a>).</li>
+</ul>
+
+<p>Dependencies</p>
+
+<ul>
+<li>go 1.12 (<a href="https://golang.org/doc/go1.12">changelog</a>; was 1.11.5)</li>
+<li>caddy 0.11.4 (<a href="https://github.com/mholt/caddy/releases/tag/v0.11.4">changelog</a>; was 0.11.0)</li>
+<li>lego 2.2.0 (<a href="https://github.com/xenolf/lego/releases">changelog</a>; was 0.5.0)</li>
+<li>dnsproviders 0.1.3 (was 0.1.2)</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.4.1"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.4.1/">v0.4.1</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2019-01-24T07:31:13-08:00" title="2019-01-24T07:31:13-08:00">January 24, 2019</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Dependencies</p>
+
+<ul>
+<li>go/1.11.5 (was 1.11.4)</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.4.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.4.0/">v0.4.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2019-01-03T08:29:21-08:00" title="2019-01-03T08:29:21-08:00">January 3, 2019</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Enhancements</p>
+
+<ul>
+<li>support static service account credentials for <code>googlecloud</code> (<a href="https://github.com/patrickcrocker">@patrickcrocker</a> via <a href="https://github.com/dpb587/caddy-bosh-release/pull/3">PR</a>)</li>
+</ul>
+
+<p>Development</p>
+
+<ul>
+<li>fix automated GitHub release publishing step</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.3.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.3.0/">v0.3.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2018-12-16T16:30:07-08:00" title="2018-12-16T16:30:07-08:00">December 16, 2018</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Enhancements</p>
+
+<ul>
+<li>run caddy process as <code>vcap</code></li>
+</ul>
+
+<p>Upgrades</p>
+
+<ul>
+<li>go 1.11.4 (was 1.10.1)</li>
+</ul>
+
+<p>Development</p>
+
+<ul>
+<li>automate go dependency upgrades</li>
+<li>include release tarball URL reference in GitHub releases</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.2.1"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.2.1/">v0.2.1</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2018-07-07T07:48:04-07:00" title="2018-07-07T07:48:04-07:00">July 7, 2018</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Development</p>
+
+<ul>
+<li>add basic deployment tests for trusty/xenial</li>
+<li>add pipeline for testing and publishing beta/stable releases</li>
+<li>move release tarballs into <code>artifacts</code> branch</li>
+</ul>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.2.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.2.0/">v0.2.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2018-06-23T13:01:00-07:00" title="2018-06-23T13:01:00-07:00">June 23, 2018</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Remove <code>bpm</code> requirement.</p>
+</article>
+</div>
+            </div>
+          </div>
+        
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-fifth">
+                <h2 id="v0.1.0"><a href="https://dpb587.github.io/caddy-bosh-release/releases/v0.1.0/">v0.1.0</a></h2>
+              </div>
+              <div class="column">
+                <nav class="level">
+                  <div class="level-left">
+                    
+                      <div class="level-item">
+                        <p class="subtitle is-5">
+                          <strong><time datetime="2018-06-05T04:09:52-07:00" title="2018-06-05T04:09:52-07:00">June 5, 2018</strong></time>
+                        </p>
+                      </div>
+                    
+                    
+                  </div>
+                </nav><article class="content"><p>Initial release with a basic Caddy server and support for DNS verification with Amazon Web Services, Microsoft Azure, and Google Cloud.</p>
+</article>
+</div>
+            </div>
+          </div>
+        
+      </article>
+    </div>
+    
+      <div class="column table-of-contents is-hidden-mobile">
+        <div class="content is-size-7">
+          <nav id="TableOfContents">
+            <ul>
+              <li>
+                <a href="#releases">Releases</a>
+                <ul>
+                  
+                    <li><a href="#v0.7.1">v0.7.1</a></li>
+                  
+                    <li><a href="#v0.7.0">v0.7.0</a></li>
+                  
+                    <li><a href="#v0.6.0">v0.6.0</a></li>
+                  
+                    <li><a href="#v0.5.1">v0.5.1</a></li>
+                  
+                    <li><a href="#v0.5.0">v0.5.0</a></li>
+                  
+                    <li><a href="#v0.4.1">v0.4.1</a></li>
+                  
+                    <li><a href="#v0.4.0">v0.4.0</a></li>
+                  
+                    <li><a href="#v0.3.0">v0.3.0</a></li>
+                  
+                    <li><a href="#v0.2.1">v0.2.1</a></li>
+                  
+                    <li><a href="#v0.2.0">v0.2.0</a></li>
+                  
+                    <li><a href="#v0.1.0">v0.1.0</a></li>
+                  
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </section><footer class="footer">
+  <div class="content has-text-centered">
+    
+      <a href="https://github.com/dpb587/caddy-bosh-release">Caddy BOSH Release</a> by <a href="https://dpb587.me/">Danny Berger</a>.
+    
+  </div>
+</footer>
+</body>
+</html>

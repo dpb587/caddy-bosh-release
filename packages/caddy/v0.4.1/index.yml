@@ -1,0 +1,7 @@
+---
+name: caddy
+dependencies:
+- go
+files:
+- caddy.tar.gz
+

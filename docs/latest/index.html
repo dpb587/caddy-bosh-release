@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+    Overview | caddy-bosh-release</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-37464314-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <style type="text/css">
+      body > .section {
+        padding-top: 1.75rem;
+      }
+      nav#TableOfContents > ul,
+      nav#TableOfContents > ul > li > ul {
+        list-style: none;
+        margin-left: 0;
+      }
+      nav#TableOfContents > ul > li > a {
+        display: none;
+      }
+    </style>
+  </head>
+  <body><nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://dpb587.github.io/caddy-bosh-release">
+      
+        <img height="28" src="https://github.com/dpb587.png" style="border-radius:4px;margin-right:0.5rem">
+      
+      caddy-bosh-release
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarExpanded" class="navbar-menu">
+    <div class="navbar-start">
+      
+        <a class="navbar-item" href="/caddy-bosh-release/docs/latest/">docs</a>
+      
+        <a class="navbar-item" href="/caddy-bosh-release/releases/">releases</a>
+      
+        <a class="navbar-item" href="https://github.com/dpb587/caddy-bosh-release">github</a>
+      
+    </div>
+
+    <div class="navbar-end"><div class="navbar-item" style="padding-left:0">
+          <a class="navbar-item" href="https://bosh.io/" title="BOSH" style="background-color:#fff;border-radius:4px;padding:.5rem">
+            <img height="28" src="/caddy-bosh-release/img/cff-bosh.png" style="border-radius:4px">
+          </a>
+        </div></div>
+  </div>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+</script>
+
+  <section class="hero is-dark is-bold">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Caddy BOSH Release</h1>
+        
+          <h2 class="subtitle">For running a HTTPS server with automatic certificate generation.</h2>
+        
+      </div>
+    </div>
+  </section>
+
+<section class="section">
+      <div class="columns">
+        <div class="column">
+  
+  <aside class="menu">
+    <ul class="menu-list">
+<li><a class="is-active" href="/caddy-bosh-release/docs/latest/">Overview</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/getting-started/">Getting Started</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/technical-notes/">Technical Notes</a></li>
+</ul>
+
+<p class="menu-label">Cloud Providers</p>
+
+<ul class="menu-list">
+<li><a href="/caddy-bosh-release/docs/latest/cloud/aws/">Amazon Web Services</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/google/">Google Cloud</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/azure/">Microsoft Azure</a></li>
+</ul>
+
+
+
+
+
+<p class="menu-label">Latest Release (v0.7.1)</p>
+<ul class="menu-list">
+  
+  <li><a href="/caddy-bosh-release/releases/v0.7.1/">Overview</a></li>
+  
+    <li><a href="/caddy-bosh-release/jobs/caddy/v0.7.1/">caddy</a></li>
+  
+</ul>
+
+
+  </aside>
+
+</div>
+        <div class="column is-four-fifths">
+          
+  
+  <div class="columns">
+    <div class="column is-four-fifths">
+      
+  
+  
+
+  
+    
+      
+      
+    
+  
+
+  
+    
+    
+    
+      
+    
+
+    <div class="is-size-5 is-pulled-right">
+      <a href="https://github.com/dpb587/caddy-bosh-release/blob/master/docs/_index.md" rel="noopener" target="_blank" title="Contribute changes to this page" style="opacity:0.7">
+        <i class="fas fa-pencil-alt"></i>
+      </a>
+    </div>
+  
+
+<article class="content">
+
+<h1 id="overview">Overview</h1>
+
+<p>A <a href="https://bosh.io/">BOSH release</a> to run <a href="https://caddyserver.com/">Caddy</a>, a basic web and proxy server with support for dynamically provisioning certificates. You may find this useful if you are looking for an easy method to front another BOSH job with a certificate from <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a>.</p>
+
+<h2 id="release-usage">Release Usage</h2>
+
+
+
+
+
+
+
+
+
+
+<p>Upload the release tarball from the command line:</p>
+
+<pre><code>bosh upload-release --name="caddy" --version="0.7.1" \
+  "<a href="https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/artifacts/release/9dde00b4ceca78f80fb058b52d37065ba252770f">https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/artifacts/release/9dde00b4ceca78f80fb058b52d37065ba252770f</a>" \
+  --sha1="sha256:fd95b7de432b3be379624fcd5e2fed75dd945fef4964a3079003711b2ae05934"</code></pre>
+
+<p>Or reference the release from a manifest:</p>
+
+<pre><code>releases:
+- name: "caddy"
+  version: "0.7.1"
+  url: "<a href="https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/artifacts/release/9dde00b4ceca78f80fb058b52d37065ba252770f">https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/artifacts/release/9dde00b4ceca78f80fb058b52d37065ba252770f</a>"
+  sha1: "sha256:fd95b7de432b3be379624fcd5e2fed75dd945fef4964a3079003711b2ae05934"</code></pre>
+
+
+
+</article>
+
+
+      
+      
+        
+      
+
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+
+  <div class="column table-of-contents is-hidden-mobile">
+    <div class="content is-size-7">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#overview">Overview</a>
+<ul>
+<li><a href="#release-usage">Release Usage</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+  </div>
+
+</div>
+
+        </div>
+      </div>
+    </section><footer class="footer">
+  <div class="content has-text-centered">
+    
+      <a href="https://github.com/dpb587/caddy-bosh-release">Caddy BOSH Release</a> by <a href="https://dpb587.me/">Danny Berger</a>.
+    
+  </div>
+</footer>
+</body>
+</html>

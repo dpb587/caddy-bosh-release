@@ -1,0 +1,26 @@
+---
+name: caddy
+packages:
+- caddy
+templates:
+  bin/exec.erb: bin/exec
+  config/bpm.yml.erb: config/bpm.yml
+  config/Caddyfile.erb: config/Caddyfile
+properties:
+  acme.ca.url:
+    description: "Default ACME-compatible Certificate Authority endpoint to request certificates from."
+    default: https://acme-v02.api.letsencrypt.org/directory
+  acme.email:
+    description: "Default ACME CA account email address."
+  grace:
+    description: "Maximum duration of graceful shutdown."
+    default: 5s
+  env:
+    description: "Environment variables to propagate to Caddy. Useful for configuring DNS solver."
+    default: {}
+  caddyfile:
+    description: "The text file configuring how Caddy will run."
+  readonly_paths:
+    description: "A list of paths which should be exposed to Caddy for reading. These must be within /var/vcap/data or /var/vcap/store."
+    default: []
+

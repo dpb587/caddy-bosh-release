@@ -1,0 +1,6 @@
+---
+name: go
+dependencies: []
+files:
+- go/*
+

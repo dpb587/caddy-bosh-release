@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>caddy | caddy-bosh-release</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-37464314-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+    <style type="text/css">
+      body > .section {
+        padding-top: 1.75rem;
+      }
+      nav#TableOfContents > ul,
+      nav#TableOfContents > ul > li > ul {
+        list-style: none;
+        margin-left: 0;
+      }
+      nav#TableOfContents > ul > li > a {
+        display: none;
+      }
+    </style>
+  </head>
+  <body><nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://dpb587.github.io/caddy-bosh-release">
+      
+        <img height="28" src="https://github.com/dpb587.png" style="border-radius:4px;margin-right:0.5rem">
+      
+      caddy-bosh-release
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarExpanded">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarExpanded" class="navbar-menu">
+    <div class="navbar-start">
+      
+        <a class="navbar-item" href="/caddy-bosh-release/docs/latest/">docs</a>
+      
+        <a class="navbar-item" href="/caddy-bosh-release/releases/">releases</a>
+      
+        <a class="navbar-item" href="https://github.com/dpb587/caddy-bosh-release">github</a>
+      
+    </div>
+
+    <div class="navbar-end"><div class="navbar-item" style="padding-left:0">
+          <a class="navbar-item" href="https://bosh.io/" title="BOSH" style="background-color:#fff;border-radius:4px;padding:.5rem">
+            <img height="28" src="/caddy-bosh-release/img/cff-bosh.png" style="border-radius:4px">
+          </a>
+        </div></div>
+  </div>
+</nav>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target;
+          const $target = document.getElementById(target);
+
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+</script>
+
+<section class="section">
+      <div class="columns">
+        <div class="column">
+  
+  <aside class="menu">
+    <ul class="menu-list">
+<li><a href="/caddy-bosh-release/docs/latest/">Overview</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/getting-started/">Getting Started</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/technical-notes/">Technical Notes</a></li>
+</ul>
+
+<p class="menu-label">Cloud Providers</p>
+
+<ul class="menu-list">
+<li><a href="/caddy-bosh-release/docs/latest/cloud/aws/">Amazon Web Services</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/google/">Google Cloud</a></li>
+<li><a href="/caddy-bosh-release/docs/latest/cloud/azure/">Microsoft Azure</a></li>
+</ul>
+
+
+
+
+
+<p class="menu-label">Latest Release (v0.7.1)</p>
+<ul class="menu-list">
+  
+  <li><a href="/caddy-bosh-release/releases/v0.7.1/">Overview</a></li>
+  
+    <li><a href="/caddy-bosh-release/jobs/caddy/v0.7.1/">caddy</a></li>
+  
+</ul>
+
+
+  </aside>
+
+</div>
+        <div class="column is-four-fifths">
+          
+  <div class="columns">
+    <div class="column is-four-fifths">
+  
+  
+
+  
+    
+  
+
+  
+
+<article class="content">
+        
+  <article class="message is-warning">
+    <div class="message-body">
+      This document is describing an outdated version (v0.4.1). Please consider switching to the latest version (<a href="/caddy-bosh-release/releases/v0.7.1/">v0.7.1</a>).
+    </div>
+  </article>
+
+
+
+        <h1 id="overview"><code>caddy</code> package</h1>
+
+        
+
+        
+          
+            <h2 id="dependencies">Dependencies</h2>
+
+            <ul>
+              
+                <li><a href="/caddy-bosh-release/packages/go/v0.4.1/"><code>go</code></a></li>
+              
+            </ul>
+          
+
+          
+            <h2 id="files">Files</h2>
+
+            <ul>
+              
+                <li><code>caddy.tar.gz</code></li>
+              
+            </ul>
+          
+
+          <h2 id="spec">Source</h2>
+
+          <p>
+            Based on <code>packages/caddy/spec</code>
+            (<a href="https://github.com/dpb587/caddy-bosh-release/blob/v0.4.1/packages/caddy/spec">source</a>,
+              <a href="https://dpb587.github.io/caddy-bosh-release/packages/caddy/v0.4.1/index.yml">YAML</a>,
+              <a href="https://dpb587.github.io/caddy-bosh-release/packages/caddy/v0.4.1/index.json">JSON</a>).
+          </p>
+        
+      </article>
+    </div>
+    
+      <div class="column table-of-contents is-hidden-mobile">
+        <div class="content is-size-7">
+          <nav id="TableOfContents">
+            <ul>
+              <li>
+                <a href="#overview"><code>caddy</code> job</a>
+                <ul>
+                  
+                    
+                      <li><a href="#dependencies">Dependencies</a></li>
+                    
+                    
+                      <li><a href="#files">Files</a></li>
+                    
+                  
+                  <li><a href="#spec">Source</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    
+  </div>
+
+        </div>
+      </div>
+    </section><footer class="footer">
+  <div class="content has-text-centered">
+    
+      <a href="https://github.com/dpb587/caddy-bosh-release">Caddy BOSH Release</a> by <a href="https://dpb587.me/">Danny Berger</a>.
+    
+  </div>
+</footer>
+</body>
+</html>

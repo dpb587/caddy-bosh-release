@@ -1,0 +1,25 @@
+---
+name: caddy
+packages:
+- caddy
+templates:
+  bin/control.erb: bin/control
+  bin/exec.erb: bin/exec
+  bin/pre-start: bin/pre-start
+  config/Caddyfile.erb: config/Caddyfile
+  config/gce_service_account_file.json.erb: config/gce_service_account_file.json
+properties:
+  acme.ca.url:
+    description: "Default ACME-compatible Certificate Authority endpoint to request certificates from."
+    default: https://acme-v02.api.letsencrypt.org/directory
+  acme.email:
+    description: "Default ACME CA account email address."
+  grace:
+    description: "Maximum duration of graceful shutdown."
+    default: 5s
+  env:
+    description: "Environment variables to propagate to Caddy. Useful for configuring DNS solver."
+    default: {}
+  caddyfile:
+    description: "The text file configuring how Caddy will run."
+
