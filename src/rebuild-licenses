@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -eu
+
+(
+  echo "This software contains subcomponents with separate copyright notices and license"
+  echo "terms. Your use of the source code for the these subcomponents is subject to the"
+  echo "terms and conditions of the following licenses."
+) > LICENSES
+
+for license in $( tar -tzf blobs/caddy.tar.gz | grep -E 'LICEN[CS]E(.txt)?$' | sort ); do
+  ref="src/caddy.tgz!$license"
+
+  echo "$ref" >&2
+
+  tar -xzOf blobs/caddy.tar.gz "$license" > /tmp/license
+
+  (
+    echo
+    echo "################################################################################"
+    echo
+    echo "source: $ref"
+    identify_license -threshold 0.95 /tmp/license 2> /dev/null | gsed 's#^/tmp/license: #license: #g; s# (confidence: .\+##g'
+    echo
+    cat /tmp/license | gsed 's/^/> /g'
+  ) >> LICENSES
+done

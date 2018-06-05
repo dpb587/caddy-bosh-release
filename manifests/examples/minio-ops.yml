@@ -1,0 +1,9 @@
+---
+- path: /instance_groups/name=minio/jobs/name=caddy/properties/caddyfile
+  type: replace
+  value: |
+    ((external_host)) {
+      proxy / 127.0.0.1:9000 {
+        transparent
+      }
+    }

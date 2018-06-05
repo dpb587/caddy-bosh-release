@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -eu
+
+source /var/vcap/packages/golang-1.10-linux/bosh/compile.env
+
+tar -xzf caddy.tar.gz
+
+cd src/github.com/mholt/caddy/caddy
+
+#go run build.go
+go build -o caddy main.go
+
+mkdir $BOSH_INSTALL_TARGET/bin
+
+mv caddy $BOSH_INSTALL_TARGET/bin/caddy

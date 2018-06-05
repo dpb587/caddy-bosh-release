@@ -1,0 +1,14 @@
+---
+- path: /instance_groups/name=bosh/jobs/name=director/properties/director/port
+  type: replace
+  value: 127.0.0.1:25555
+- path: /instance_groups/name=bosh/jobs/name=caddy/properties/caddyfile
+  type: replace
+  value: |
+    ((external_host)):25555 {
+      tls
+      proxy / 127.0.0.1:25555 {
+        websocket
+        transparent
+      }
+    }

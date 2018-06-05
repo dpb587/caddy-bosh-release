@@ -1,0 +1,44 @@
+---
+name: caddy
+releases:
+- name: caddy
+  version: create
+  url: file://.
+  # url: https://github.com/dpb587/caddy-bosh-release
+- name: bpm
+  version: "0.6.0"
+  url: https://bosh.io/d/github.com/cloudfoundry-incubator/bpm-release?v=0.6.0
+  sha1: 4f0f239abdc801d71de9063625aa56e3c42634b5
+instance_groups:
+- name: caddy
+  jobs:
+  - name: caddy
+    release: caddy
+    properties:
+      caddyfile: |
+        localhost {
+          basicauth / username password
+          proxy / https://httpbin.org
+        }
+  instances: 4
+  persistent_disk: 1024
+  vm_type: default
+  stemcell: default
+  networks:
+  - name: default
+  azs:
+  - z1
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+addons:
+- name: bpm
+  jobs:
+  - name: bpm
+    release: bpm
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000

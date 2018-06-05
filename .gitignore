@@ -1,0 +1,8 @@
+/.dev_builds
+/.envrc
+/blobs
+/config/private.yml
+/dev_releases
+/tmp
+/terraform.tfvars
+/terraform.tfstate*

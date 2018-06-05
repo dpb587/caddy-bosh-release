@@ -1,0 +1,6 @@
+---
+name: caddy
+dependencies:
+- golang-1.10-linux
+files:
+- caddy.tar.gz

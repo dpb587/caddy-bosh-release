@@ -1,0 +1,51 @@
+#!/bin/bash
+
+set -eux
+
+releasedir=$PWD
+
+export GOPATH=/tmp/caddy-build.gopath
+
+mkdir -p $GOPATH
+
+pushd $GOPATH > /dev/null
+  go get github.com/mholt/caddy
+  pushd src/github.com/mholt/caddy > /dev/null
+    git checkout v0.11.0
+  popd > /dev/null
+
+  go get github.com/caddyserver/builds
+
+  go get github.com/xenolf/lego
+  pushd src/github.com/xenolf/lego > /dev/null
+    git checkout v0.5.0
+  popd > /dev/null
+
+  go get github.com/caddyserver/dnsproviders/azure
+  go get github.com/caddyserver/dnsproviders/googlecloud
+  go get github.com/caddyserver/dnsproviders/route53
+  pushd src/github.com/caddyserver/dnsproviders > /dev/null
+    git checkout v0.1.2
+  popd > /dev/null
+
+  rm -fr bin pkg
+
+  find src/ -type dir -name .git \
+    | grep -v github.com/mholt/caddy \
+    | xargs -n1 -- rm -fr
+
+  cp "$releasedir/src/caddy-build/caddy.go" src/github.com/mholt/caddy/caddy/main.go
+
+  pushd src/github.com/mholt/caddy/caddy > /dev/null
+    # verify we can build it
+    go run build.go
+
+    rm caddy
+  popd
+
+  tar -czf caddy.tar.gz src
+popd > /dev/null
+
+bosh add-blob $GOPATH/caddy.tar.gz caddy.tar.gz
+
+rm -fr $GOPATH

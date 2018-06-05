@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -eu
+
+export CADDYPATH=/var/vcap/store/caddy
+mkdir -p "$CADDYPATH"
+
+<% p('env').each do |k, v| %>
+export <%= k %>="<%= v %>"
+<% end %>
+
+cd "$CADDYPATH"
+
+exec /var/vcap/packages/caddy/bin/caddy\
+  -conf /var/vcap/jobs/caddy/config/Caddyfile \
+  -grace "<%= p('grace') %>" \
+  -ca "<%= p('acme.ca.url') %>" \
+  -agree \
+  <% if_p('acme.email') do |v| %>-email "<%= v %>" <% end %>\

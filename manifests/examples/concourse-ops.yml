@@ -1,0 +1,9 @@
+---
+- path: /instance_groups/name=caddy/jobs/name=caddy/properties/caddyfile
+  type: replace
+  value: |
+    ((external_host)) {
+      proxy / localhost:8080 {
+        transparent
+      }
+    }

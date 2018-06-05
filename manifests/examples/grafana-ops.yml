@@ -1,0 +1,12 @@
+---
+- path: /instance_groups/name=uaa/jobs/name=uaa/properties/uaa/ssl/port
+  type: replace
+  value: -1
+- path: /instance_groups/name=uaa/jobs/name=caddy/properties/caddyfile
+  type: replace
+  value: |
+    ((external_host)) {
+      proxy / 127.0.0.1:3000 {
+        transparent
+      }
+    }
