@@ -7,7 +7,7 @@ A [BOSH release](https://bosh.io/) to run [Caddy](https://caddyserver.com/), a b
 
 ## Getting Started
 
-To start, you will need to include this release (and [bpm](https://github.com/cloudfoundry-incubator/bpm-release)) in your deployment's `releases` section. The [`caddy`](jobs/caddy) job manages the Caddy server and, at a minimum, you will need to configure the `caddyfile` property ([learn more](https://caddyserver.com/tutorial/caddyfile)) and attach a persistent disk to store the certificates. Assuming the instance is publicly accessible (for verification), the following will get a certificate for `caddy.example.com` and forward all requests to the server running at `localhost:8080`.
+To start, you will need to include this release in your deployment's `releases` section. The [`caddy`](jobs/caddy) job manages the Caddy server and, at a minimum, you will need to configure the `caddyfile` property ([learn more](https://caddyserver.com/tutorial/caddyfile)) and attach a persistent disk to store the certificates. Assuming the instance is publicly accessible (for verification), the following will get a certificate for `caddy.example.com` and forward all requests to the server running at `localhost:8080`.
 
     caddyfile: |
       caddy.example.com

@@ -1,4 +1,4 @@
-check process caddy with pidfile /var/vcap/sys/run/bpm/caddy/caddy.pid
+check process caddy with pidfile /var/vcap/sys/run/caddy/caddy.pid
   group vcap
-  start program "/var/vcap/jobs/bpm/bin/bpm start caddy"
-  stop program "/var/vcap/jobs/bpm/bin/bpm stop caddy"
+  start program "/var/vcap/jobs/caddy/bin/control start"
+  stop program "/var/vcap/jobs/caddy/bin/control stop"
