@@ -5,5 +5,6 @@
     ((external_host)) {
       proxy / localhost:8080 {
         transparent
+        websocket
       }
     }
