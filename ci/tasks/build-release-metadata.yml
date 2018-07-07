@@ -1,0 +1,25 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+    repository: dpb587/bosh-release-resource
+inputs:
+- name: repo
+- name: bosh-release
+outputs:
+- name: release-metadata
+run:
+  path: sh
+  args:
+  - -c
+  - |
+    set -eu
+
+    name="$( cat bosh-release/name )"
+    version="$( cat bosh-release/version )"
+
+    echo -n "$version" > release-metadata/version
+    echo -n "$name/$version" > release-metadata/name
+    echo -n "v$version" > release-metadata/tag
+    ( cat "repo/releases/$name/$name-$version.md" || true ) > release-metadata/notes.md

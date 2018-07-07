@@ -12,9 +12,12 @@ instance_groups:
     release: caddy
     properties:
       caddyfile: |
-        localhost {
+        :8080 {
           basicauth / vcap c1oudc0w
-          proxy / https://httpbin.org
+          proxy / http://httpbin.org {
+            # insecure; https often gives: 503 The deployment is currently unavailable
+            header_upstream X-Forwarded-Proto https
+          }
         }
   instances: 1
   persistent_disk: 1024
@@ -26,7 +29,7 @@ instance_groups:
   - z1
 stemcells:
 - alias: default
-  os: ubuntu-trusty
+  os: ((os))
   version: latest
 update:
   canaries: 1

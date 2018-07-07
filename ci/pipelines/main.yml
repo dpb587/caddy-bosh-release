@@ -1,0 +1,139 @@
+jobs:
+- name: test-ubuntu-trusty
+  plan:
+  - get: repo
+    trigger: true
+  - get: stemcell
+    resource: ubuntu-trusty-stemcell
+  - task: test
+    file: repo/ci/tasks/test-deploy.yml
+    privileged: true
+- name: test-ubuntu-xenial
+  plan:
+  - get: repo
+    trigger: true
+  - get: stemcell
+    resource: ubuntu-xenial-stemcell
+  - task: test
+    file: repo/ci/tasks/test-deploy.yml
+    privileged: true
+- name: create-beta
+  plan:
+  - get: repo
+    trigger: true
+    passed:
+    - test-ubuntu-trusty
+    - test-ubuntu-xenial
+  - task: create-beta
+    file: repo/ci/tasks/create-dev-release-tarball.yml
+  - put: beta-bosh-release-tarball
+    params:
+      files:
+      - release/*.tgz
+      version: release/version
+- name: publish
+  serial_groups:
+  - version
+  plan:
+  - get: repo
+    passed:
+    - create-beta
+  - get: beta-bosh-release-tarball
+    passed:
+    - create-beta
+  - get: version
+  - do:
+    - put: bosh-release
+      params:
+        tarball: beta-bosh-release-tarball/*.tgz
+        version: version/version
+    - put: bosh-release-tarball
+      params:
+        files:
+        - bosh-release/*.tgz
+        version: bosh-release/version
+    - task: build-release-metadata
+      file: repo/ci/tasks/build-release-metadata.yml
+    - put: github-release
+      params:
+        name: release-metadata/name
+        tag: release-metadata/tag
+        body: release-metadata/notes.md
+    ensure:
+      put: version
+      params:
+        bump: patch
+- name: bump-major
+  plan:
+  - put: version
+    params:
+      bump: major
+- name: bump-minor
+  plan:
+  - put: version
+    params:
+      bump: minor
+- name: bump-patch
+  plan:
+  - put: version
+    params:
+      bump: patch
+resources:
+- name: repo
+  type: git
+  source: &repo
+    uri: git@github.com:dpb587/caddy-bosh-release.git
+    branch: master
+    private_key: ((ci_deploy_ssh_key))
+- name: version
+  type: semver
+  source:
+    <<: *repo
+    driver: git
+    branch: ci-state
+    file: version
+- name: bosh-release
+  type: bosh-release
+  source: *repo
+- name: github-release
+  type: github-release
+  source:
+    owner: dpb587
+    repository: caddy-bosh-release
+    access_token: ((github_access_token))
+- name: beta-bosh-release-tarball
+  type: metalink-repository
+  source:
+    << : *release_artifacts
+    uri: git+ssh://git@github.com:dpb587/caddy-bosh-release.git//release/beta#artifacts
+- name: bosh-release-tarball
+  type: metalink-repository
+  source:
+    << : *release_artifacts
+    uri: git+ssh://git@github.com:dpb587/caddy-bosh-release.git//release/stable#artifacts
+- name: ubuntu-trusty-stemcell
+  type: bosh-io-stemcell
+  source:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+- name: ubuntu-xenial-stemcell
+  type: bosh-io-stemcell
+  source:
+    name: bosh-warden-boshlite-ubuntu-xenial-go_agent
+resource_types:
+- name: bosh-release
+  type: docker-image
+  source:
+    repository: dpb587/bosh-release-resource
+- name: metalink-repository
+  type: docker-image
+  source:
+    repository: dpb587/metalink-repository-resource
+shared:
+  release_artifacts: &release_artifacts
+    mirror_files:
+    - destination: s3://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/artifacts/release/{{.SHA1}}
+      env:
+        AWS_ACCESS_KEY_ID: ((ci_access_key))
+        AWS_SECRET_ACCESS_KEY: ((ci_secret_key))
+    options:
+      private_key: ((ci_deploy_ssh_key))

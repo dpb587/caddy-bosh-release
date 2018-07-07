@@ -4,5 +4,6 @@
 /config/private.yml
 /dev_releases
 /tmp
+/.terraform
 /terraform.tfvars
 /terraform.tfstate*

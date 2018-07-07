@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eu
+
+getstate(){ lpass show --sync=now --notes "$( git remote get-url origin )//terraform.tfstate" > terraform.tfstate ;}
+putstate(){ lpass edit --non-interactive --notes "$( git remote get-url origin )//terraform.tfstate" < terraform.tfstate ;}
+
+getstate
+trap putstate EXIT
+
+terraform init
+terraform apply
