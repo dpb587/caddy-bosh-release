@@ -3,7 +3,7 @@
 set -eu
 
 getstate(){ lpass show --sync=now --notes "$( git remote get-url origin )//terraform.tfstate" > terraform.tfstate ;}
-putstate(){ lpass edit --non-interactive --notes "$( git remote get-url origin )//terraform.tfstate" < terraform.tfstate ;}
+putstate(){ lpass edit --non-interactive --notes "$( git remote get-url origin )//terraform.tfstate" < terraform.tfstate ; lpass sync ;}
 
 getstate
 trap putstate EXIT
