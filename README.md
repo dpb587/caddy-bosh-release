@@ -21,9 +21,9 @@ If you are using DNS to verify your domain name, you will also need to configure
       caddy.example.com
       proxy / localhost:8080 {
         transparent
-        tls {
-          dns route53
-        }
+      }
+      tls {
+        dns route53
       }
     env:
       AWS_ACCESS_KEY_ID: AKIA...
