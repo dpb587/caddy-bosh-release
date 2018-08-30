@@ -1,0 +1,12 @@
+<metalink xmlns="urn:ietf:params:xml:ns:metalink">
+  <file name="caddy-0.2.1-on-ubuntu-trusty-stemcell-3586.40.tgz">
+    <hash type="sha-512">5d84ff8945355cdc7029b4c42aa9468f17cbbeb8318bdfa49cb0231b2a605f291d6eb58423679649a1babc8350c5596643a818284b344e1b5349a2ff335fb5b0</hash>
+    <hash type="sha-256">3742c2ebac88dd67774d428e94863e3c64656067db4d3e5cdfad199c631a1726</hash>
+    <hash type="sha-1">209ea427d962ad53128e146473837ee7653211ac</hash>
+    <hash type="md5">ed677d55a4ce63a8b46581af2d1671ff</hash>
+    <size>126818003</size>
+    <url>https://s3-external-1.amazonaws.com/dpb587-bosh-release-openvpn-us-east-1/compiled-release/209ea427d962ad53128e146473837ee7653211ac</url>
+    <version>0.2.1</version>
+  </file>
+  <generator>boshua/contextualosmetalinkrepository</generator>
+</metalink>
