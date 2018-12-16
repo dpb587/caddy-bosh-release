@@ -7,6 +7,7 @@ image_resource:
 inputs:
 - name: repo
 - name: bosh-release
+- name: bosh-release-tarball
 outputs:
 - name: release-metadata
 run:
@@ -22,4 +23,25 @@ run:
     echo -n "$version" > release-metadata/version
     echo -n "$name/$version" > release-metadata/name
     echo -n "v$version" > release-metadata/tag
-    ( cat "repo/releases/$name/$name-$version.md" || true ) > release-metadata/notes.md
+
+    notes=release-metadata/notes.md
+    ( cat "repo/releases/$name/$name-$version.md" || true ) > $notes
+
+    (
+      echo
+      echo "Artifacts"
+      echo
+      echo "                                                              sha256 file"
+    ) >> $notes
+
+    curl -fLo /usr/local/bin/meta4 https://github.com/dpb587/metalink/releases/download/v0.2.0/meta4-0.2.0-linux-amd64
+    echo "81a592eaf647358563f296aced845ac60d9061a45b30b852d1c3f3674720fe19  /usr/local/bin/meta4" | sha256sum -c -
+    chmod +x /usr/local/bin/meta4
+
+    metalink=bosh-release-tarball/.resource/metalink.meta4
+
+    for file in $( meta4 files --metalink=$metalink ); do
+      cp "$build_dir/$file" "$release_dir/blobs/$file"
+
+      echo "    $( meta4 file-hash --metalink=$metalink --file=$file sha-256 )" "$file" >> $notes
+    done

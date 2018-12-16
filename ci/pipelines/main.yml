@@ -66,8 +66,6 @@ jobs:
         files:
         - bosh-release/*.tgz
         version: bosh-release/version
-      get_params:
-        skip_download: true
     - task: build-release-metadata
       file: repo/ci/tasks/build-release-metadata.yml
     - put: github-release
@@ -75,6 +73,8 @@ jobs:
         name: release-metadata/name
         tag: release-metadata/tag
         body: release-metadata/notes.md
+        globs:
+        - bosh-release-tarball/*.tgz
     ensure:
       put: version
       params:
