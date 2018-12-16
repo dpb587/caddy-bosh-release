@@ -1,0 +1,12 @@
+type: dynamic-metalink
+source:
+  version_check: |
+    curl -s https://golang.org/dl/?mode=json | jq -r '.[].version[2:]'
+  metalink_get: |
+    curl -s https://golang.org/dl/?mode=json | jq '
+      map(select(.version[2:] == env.version)) | map({
+        "files": (.files | map({
+          "name": .filename,
+          "size": .size,
+          "urls": [ { "url": "https://dl.google.com/go/\(.filename)" } ],
+          "hashes": [ { "type": "sha-256", "hash": .sha256 } ] } ) ) } )[]'

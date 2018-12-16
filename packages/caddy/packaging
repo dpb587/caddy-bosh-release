@@ -2,7 +2,9 @@
 
 set -eu
 
-source /var/vcap/packages/golang-1.10-linux/bosh/compile.env
+export GOROOT=/var/vcap/packages/go
+export GOPATH="$PWD"
+export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 tar -xzf caddy.tar.gz
 

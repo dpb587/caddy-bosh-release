@@ -147,15 +147,27 @@ resources:
   type: bosh-io-stemcell
   source:
     name: bosh-warden-boshlite-ubuntu-xenial-go_agent
+- name: slack-alert
+  type: slack-notification
+  source:
+    url: ((ci_slack_hook_url))
 resource_types:
 - name: bosh-release
   type: docker-image
   source:
     repository: dpb587/bosh-release-resource
+- name: dynamic-metalink
+  type: docker-image
+  source:
+    repository: dpb587/dynamic-metalink-resource
 - name: metalink-repository
   type: docker-image
   source:
     repository: dpb587/metalink-repository-resource
+- name: slack-notification
+  type: docker-image
+  source:
+    repository: cfcommunity/slack-notification-resource
 shared:
   release_artifacts: &release_artifacts
     mirror_files:
@@ -165,3 +177,43 @@ shared:
         AWS_SECRET_ACCESS_KEY: ((ci_secret_key))
     options:
       private_key: ((ci_deploy_ssh_key))
+bosh_release_blobs_upgrader:
+  track_files:
+  - .resource/metalink.meta4
+  resource_defaults:
+    check_every: 6h
+  serial_groups:
+  - serial
+  before_upload:
+    task: test
+    file: repo/ci/tasks/test-deploy.yml
+    privileged: true
+  after_upload:
+    put: repo
+    params:
+      repository: repo
+      rebase: true
+  on_failure:
+    put: slack-alert
+    params:
+      text: Failed to upgrade ((blob)) to v$TEXT_FILE_CONTENT.
+      text_file: blob/.resource/version
+      attachments:
+      - author_icon: https://github.com/concourse.png
+        author_name: upgrader pipeline
+        author_link: https://github.com/dpb587/caddy-bosh-release/blob/master/ci/pipelines/main.yml
+        title: $BUILD_JOB_NAME/$BUILD_NAME
+        title_link: $ATC_EXTERNAL_URL/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+        color: danger
+  on_success:
+    put: slack-alert
+    params:
+      text: Successfully upgraded ((blob)) to v$TEXT_FILE_CONTENT.
+      text_file: blob/.resource/version
+      attachments:
+      - author_icon: https://github.com/concourse.png
+        author_name: upgrader pipeline
+        author_link: https://github.com/dpb587/caddy-bosh-release/blob/master/ci/pipelines/main.yml
+        title: $BUILD_JOB_NAME/$BUILD_NAME
+        title_link: $ATC_EXTERNAL_URL/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME
+        color: good
