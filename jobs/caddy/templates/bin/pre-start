@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export CADDYPATH=/var/vcap/store/caddy
+
+mkdir -p "$CADDYPATH"
+
+# migration; prior to 0.3.0, root ran caddy and owned these files
+chown -R vcap:vcap "$CADDYPATH"

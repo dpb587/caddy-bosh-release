@@ -35,7 +35,7 @@ run:
 
     bosh -n deploy -v os="$os" manifests/caddy.yml
 
-    curl --user vcap:c1oudc0w "http://$( bosh instances --column ips | awk '{ print $1 }' ):8080/headers" \
+    curl --user vcap:c1oudc0w "http://$( bosh instances --column ips | awk '{ print $1 }' ):80/headers" \
       | tee /tmp/output
 
     grep 'Basic dmNhcDpjMW91ZGMwdw==' /tmp/output

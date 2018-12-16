@@ -5,6 +5,7 @@ packages:
 templates:
   bin/control.erb: bin/control
   bin/exec.erb: bin/exec
+  bin/pre-start: bin/pre-start
   config/Caddyfile.erb: config/Caddyfile
 properties:
   acme.ca.url:

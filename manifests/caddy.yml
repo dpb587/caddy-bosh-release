@@ -12,7 +12,7 @@ instance_groups:
     release: caddy
     properties:
       caddyfile: |
-        :8080 {
+        :80 {
           basicauth / vcap c1oudc0w
           proxy / http://httpbin.org {
             # insecure; https often gives: 503 The deployment is currently unavailable

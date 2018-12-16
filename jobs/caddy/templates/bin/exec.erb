@@ -3,7 +3,6 @@
 set -eu
 
 export CADDYPATH=/var/vcap/store/caddy
-mkdir -p "$CADDYPATH"
 
 <% p('env').each do |k, v| %>
 export <%= k %>="<%= v %>"
@@ -11,7 +10,9 @@ export <%= k %>="<%= v %>"
 
 cd "$CADDYPATH"
 
-exec /var/vcap/packages/caddy/bin/caddy\
+setcap cap_net_bind_service=+ep /var/vcap/packages/caddy/bin/caddy
+
+exec chpst -u vcap:vcap /var/vcap/packages/caddy/bin/caddy \
   -conf /var/vcap/jobs/caddy/config/Caddyfile \
   -grace "<%= p('grace') %>" \
   -ca "<%= p('acme.ca.url') %>" \
