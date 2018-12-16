@@ -10,3 +10,5 @@ source:
           "size": .size,
           "urls": [ { "url": "https://dl.google.com/go/\(.filename)" } ],
           "hashes": [ { "type": "sha-256", "hash": .sha256 } ] } ) ) } )[]'
+  include_files:
+  - go*.linux-amd64.tar.gz
