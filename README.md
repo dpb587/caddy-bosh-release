@@ -41,10 +41,10 @@ Some examples of putting Caddy in front of other BOSH releases and their relevan
 
  * [cloudfoundry/bosh](https://github.com/cloudfoundry/bosh) - [`manifests/examples/bosh-ops.yml`](manifests/examples/bosh-ops.yml)
  * [cloudfoundry/uaa-release](https://github.com/cloudfoundry/uaa-release) - [`manifests/examples/uaa-ops.yml`](manifests/examples/uaa-ops.yml)
- * [concourse/concourse](https://github.com/concourse/concourse) - [`manifests.examples/concourse-ops.yml`](manifests/examples/concourse-ops.yml)
- * [dpb587/ssoca-bosh-release](https://github.com/dpb587/ssoca-bosh-release) - [`manifests.examples/ssoca-ops.yml`](manifests/examples/ssoca-ops.yml)
- * [minio/minio-boshrelease](https://github.com/minio/minio-boshrelease) - [`manifests.examples/minio-ops.yml`](manifests/examples/minio-ops.yml)
- * [vito/grafana-boshrelease](https://github.com/vito/grafana-boshrelease) - [`manifests.examples/grafana-ops.yml`](manifests/examples/grafana-ops.yml)
+ * [concourse/concourse](https://github.com/concourse/concourse) - [`manifests/examples/concourse-ops.yml`](manifests/examples/concourse-ops.yml)
+ * [dpb587/ssoca-bosh-release](https://github.com/dpb587/ssoca-bosh-release) - [`manifests/examples/ssoca-ops.yml`](manifests/examples/ssoca-ops.yml)
+ * [minio/minio-boshrelease](https://github.com/minio/minio-boshrelease) - [`manifests/examples/minio-ops.yml`](manifests/examples/minio-ops.yml)
+ * [vito/grafana-boshrelease](https://github.com/vito/grafana-boshrelease) - [`manifests/examples/grafana-ops.yml`](manifests/examples/grafana-ops.yml)
 
 
 ## Technical Notes
