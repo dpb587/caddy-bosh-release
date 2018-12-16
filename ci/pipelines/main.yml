@@ -12,6 +12,9 @@ groups:
   name: ci-state
 jobs:
 - name: test-ubuntu-trusty
+  serial: true
+  serial_groups:
+  - highload
   plan:
   - get: repo
     trigger: true
@@ -21,6 +24,9 @@ jobs:
     file: repo/ci/tasks/test-deploy.yml
     privileged: true
 - name: test-ubuntu-xenial
+  serial: true
+  serial_groups:
+  - highload
   plan:
   - get: repo
     trigger: true
