@@ -20,16 +20,15 @@ run:
     export BOSH_DEPLOYMENT=caddy
 
     if [ -e stemcell/*.tgz ]; then
-      bosh upload-stemcell stemcell/*.tgz
-      os=$( tar -Oxzf stemcell/*.tgz stemcell.MF | grep '^operating_system: ' | awk '{ print $2 }' )
+      stemcell_path=$( echo stemcell/*.tgz )
     else
-      bosh upload-stemcell \
-        --name=bosh-warden-boshlite-ubuntu-trusty-go_agent \
-        --version=3586.25 \
-        --sha1=b9a44806dc1bb99b0d11d7413742f3619139da0b \
-        https://s3.amazonaws.com/bosh-core-stemcells/warden/bosh-stemcell-3586.25-warden-boshlite-ubuntu-trusty-go_agent.tgz
-      os=ubuntu-trusty
+      # TODO reminder: this will break after bosh-deployment switches to sha256
+      checksum=$( bosh int --path=/resource_pools/0/stemcell/sha1 /tmp/local-bosh/director/bosh-director.yml )
+      stemcell_path=$( find ~/.bosh/downloads -type f | xargs -n1 shasum | grep $checksum | awk '{ print $2 }' )
     fi
+
+    bosh upload-stemcell "$stemcell_path"
+    os=$( tar -Oxzf "$stemcell_path" stemcell.MF | grep '^operating_system: ' | awk '{ print $2 }' )
 
     cd repo
 
