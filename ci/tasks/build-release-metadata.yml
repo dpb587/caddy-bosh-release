@@ -41,7 +41,5 @@ run:
     metalink=bosh-release-tarball/.resource/metalink.meta4
 
     for file in $( meta4 files --metalink=$metalink ); do
-      cp "$build_dir/$file" "$release_dir/blobs/$file"
-
       echo "    $( meta4 file-hash --metalink=$metalink --file=$file sha-256 )" "$file" >> $notes
     done
