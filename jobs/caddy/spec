@@ -7,6 +7,7 @@ templates:
   bin/exec.erb: bin/exec
   bin/pre-start: bin/pre-start
   config/Caddyfile.erb: config/Caddyfile
+  config/gce_service_account_file.json.erb: config/gce_service_account_file.json
 properties:
   acme.ca.url:
     description: "Default ACME-compatible Certificate Authority endpoint to request certificates from."
