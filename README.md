@@ -30,6 +30,24 @@ If you are using DNS to verify your domain name, you will also need to configure
       AWS_SECRET_ACCESS_KEY: ...
       AWS_HOSTED_ZONE_ID: Z... # optional
 
+If you are using Google Cloud DNS, you will configure your service account key as a json string.
+
+    env:
+      GCE_PROJECT: sample-project-001
+      GCE_SERVICE_ACCOUNT_FILE: |
+        {
+          "type": "service_account",
+          "project_id": "sample-project-001",
+          "private_key_id": "sample4c02016ac2d8abf5b1577993ded31626a8",
+          "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...k8LA==\n-----END PRIVATE KEY-----\n",
+          "client_email": "caddy@sample-project-001.iam.gserviceaccount.com",
+          "client_id": "sample012345678901234",
+          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+          "token_uri": "https://accounts.google.com/o/oauth2/token",
+          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/caddy%40sample-project-001.iam.gserviceaccount.com"
+        }
+
 If you are looking for a sample deployment to experiment with, start with the [`caddy.yml`](manifests/caddy.yml) manifest in a [test environment](https://bosh.io/docs/quick-start/).
 
     bosh -d caddy deploy manifests/caddy.yml
