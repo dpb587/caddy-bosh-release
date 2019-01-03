@@ -5,7 +5,11 @@ set -eu
 export CADDYPATH=/var/vcap/store/caddy
 
 <% p('env').each do |k, v| %>
+<% if k == "GCE_SERVICE_ACCOUNT_FILE" || k == "GOOGLE_APPLICATION_CREDENTIALS" %>
+export <%= k %>=/var/vcap/jobs/caddy/config/gce_service_account_file.json
+<% else %>
 export <%= k %>="<%= v %>"
+<% end %>
 <% end %>
 
 cd "$CADDYPATH"
