@@ -3,6 +3,7 @@
   type: replace
   value: |
     ((external_host)) {
+      gzip
       proxy / localhost:8080 {
         transparent
         websocket
