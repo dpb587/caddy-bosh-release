@@ -31,7 +31,7 @@ run:
       echo
       echo "Artifacts"
       echo
-      echo "                                                              sha256 file"
+      echo "                                                              sha256  file"
     ) >> $notes
 
     curl -fLo /usr/local/bin/meta4 https://github.com/dpb587/metalink/releases/download/v0.2.0/meta4-0.2.0-linux-amd64
@@ -41,5 +41,5 @@ run:
     metalink=bosh-release-tarball/.resource/metalink.meta4
 
     for file in $( meta4 files --metalink=$metalink ); do
-      echo "    $( meta4 file-hash --metalink=$metalink --file=$file sha-256 )" "$file" >> $notes
+      echo "    $( meta4 file-hash --metalink=$metalink --file=$file sha-256 )  $file" >> $notes
     done
