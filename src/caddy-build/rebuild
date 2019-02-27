@@ -11,21 +11,21 @@ mkdir -p $GOPATH
 pushd $GOPATH > /dev/null
   go get github.com/mholt/caddy
   pushd src/github.com/mholt/caddy > /dev/null
-    git checkout v0.11.0
+    git checkout v0.11.4
   popd > /dev/null
 
   go get github.com/caddyserver/builds
 
-  go get github.com/xenolf/lego
+  go get github.com/xenolf/lego/cmd/lego
   pushd src/github.com/xenolf/lego > /dev/null
-    git checkout v0.5.0
+    git checkout v2.2.0
   popd > /dev/null
 
   go get github.com/caddyserver/dnsproviders/azure
   go get github.com/caddyserver/dnsproviders/googlecloud
   go get github.com/caddyserver/dnsproviders/route53
   pushd src/github.com/caddyserver/dnsproviders > /dev/null
-    git checkout v0.1.2
+    git checkout v0.1.3
   popd > /dev/null
 
   rm -fr bin pkg
