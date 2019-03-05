@@ -2,17 +2,13 @@
 
 set -eu
 
-export GOROOT=/var/vcap/packages/go
-export GOPATH="$PWD"
-export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
-
 tar -xzf caddy.tar.gz
+
+source /var/vcap/packages/go/bosh/env
 
 cd src/github.com/mholt/caddy/caddy
 
-#go run build.go
 go build -o caddy main.go
 
 mkdir $BOSH_INSTALL_TARGET/bin
-
 mv caddy $BOSH_INSTALL_TARGET/bin/caddy
