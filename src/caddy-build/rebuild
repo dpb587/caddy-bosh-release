@@ -11,7 +11,7 @@ mkdir -p $GOPATH
 pushd $GOPATH > /dev/null
   go get github.com/mholt/caddy
   pushd src/github.com/mholt/caddy > /dev/null
-    git checkout v0.11.4
+    git checkout v0.11.5
   popd > /dev/null
 
   go get github.com/caddyserver/builds
