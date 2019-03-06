@@ -2,7 +2,7 @@
 
 A [BOSH release](https://bosh.io/) to run [Caddy](https://caddyserver.com/), a basic web and proxy server with support for dynamically provisioning certificates. You may find this useful if you are looking for an easy method to front another BOSH job with a certificate from [Let's Encrypt](https://letsencrypt.org/).
 
-To use on instance groups with multiple instances, see [Multiple Instances](#multiple-instances) below.
+To use on instance groups with multiple instances, see [Certificate Storage](#certificate-storage) below.
 
 
 ## Getting Started
