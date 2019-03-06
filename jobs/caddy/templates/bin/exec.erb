@@ -5,6 +5,7 @@ set -eu
 export CADDYPATH=/var/vcap/store/caddy
 
 <% p('env').each do |k, v| %>
+<%# prior to 0.5.0, an external file was required to hold these credentials #%>
 <% if k == "GCE_SERVICE_ACCOUNT_FILE" || k == "GOOGLE_APPLICATION_CREDENTIALS" %>
 export <%= k %>=/var/vcap/jobs/caddy/config/gce_service_account_file.json
 <% else %>

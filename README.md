@@ -2,7 +2,7 @@
 
 A [BOSH release](https://bosh.io/) to run [Caddy](https://caddyserver.com/), a basic web and proxy server with support for dynamically provisioning certificates. You may find this useful if you are looking for an easy method to front another BOSH job with a certificate from [Let's Encrypt](https://letsencrypt.org/).
 
-*Note:* key pairs are managed on each VM, so you should only use this for instance groups with a single instance. Using this job across multiple instances may result in inefficient TLS connections and exceeding Certificate Authority rate limits.
+To use on instance groups with multiple instances, see [Multiple Instances](#multiple-instances) below.
 
 
 ## Getting Started
@@ -15,7 +15,7 @@ To start, you will need to include this release in your deployment's `releases` 
         transparent
       }
 
-If you are using DNS to verify your domain name, you will also need to configure the `env` property with credentials for your DNS provider ([learn more](https://caddyserver.com/docs/automatic-https#dns-challenge)) and configure the `dns` setting within `caddyfile`.
+If you are using DNS to verify your domain name, you will also need to configure the `env` property with credentials for your DNS provider ([learn more](https://caddyserver.com/docs/automatic-https#dns-challenge)) and configure the `dns` setting within `caddyfile`. For example, with [Route 53](https://aws.amazon.com/route53/):
 
     caddyfile: |
       caddy.example.com
@@ -30,22 +30,16 @@ If you are using DNS to verify your domain name, you will also need to configure
       AWS_SECRET_ACCESS_KEY: ...
       AWS_HOSTED_ZONE_ID: Z... # optional
 
-If you are using Google Cloud DNS, you will configure your service account key as a json string.
+If you are using Google Cloud DNS, configure your service account key through the `GCE_SERVICE_ACCOUNT` environment variable:
 
     env:
-      GCE_PROJECT: sample-project-001
-      GCE_SERVICE_ACCOUNT_FILE: |
+      GCE_SERVICE_ACCOUNT: |
         {
           "type": "service_account",
           "project_id": "sample-project-001",
           "private_key_id": "sample4c02016ac2d8abf5b1577993ded31626a8",
           "private_key": "-----BEGIN PRIVATE KEY-----\nMIIE...k8LA==\n-----END PRIVATE KEY-----\n",
-          "client_email": "caddy@sample-project-001.iam.gserviceaccount.com",
-          "client_id": "sample012345678901234",
-          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-          "token_uri": "https://accounts.google.com/o/oauth2/token",
-          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/caddy%40sample-project-001.iam.gserviceaccount.com"
+          ...
         }
 
 If you are looking for a sample deployment to experiment with, start with the [`caddy.yml`](manifests/caddy.yml) manifest in a [test environment](https://bosh.io/docs/quick-start/).
@@ -72,8 +66,14 @@ Some examples of putting Caddy in front of other BOSH releases and their relevan
 
  * HTTP and DNS ([azure](https://caddyserver.com/docs/tls.dns.azure), [googlecloud](https://caddyserver.com/docs/tls.dns.googlecloud), [route53](https://caddyserver.com/docs/tls.dns.route53)) verifications are currently supported.
  * It is assumed that you have already read and agree to the Subscriber Agreement for your Certificate Authorities.
- * Generated keys and certificates will be stored in `/var/vcap/store/caddy`. You should use a persistent disk.
  * This release is focused on being a simple proxy server with certificate generation features, and it intentionally does not include most optional plugins of Caddy. For more advanced behavior, you should probably continue using your existing server, although you may still want to introduce this job for the [Automatic HTTPS](https://caddyserver.com/docs/automatic-https) behavior.
+
+
+#### Certificate Storage
+
+By default, Caddy will manage keys and certificates on the local filesystem at `/var/vcap/store/caddy`. For simple, single-instance groups this is sufficient, but you must configure a persistent disk to retain the data across VM recreations. *Using this job with the default configuration with multiple instances may result in inefficient TLS connections and exceeding Certificate Authority rate limits.*
+
+For more complex or multi-instance groups, you may want to use [Consul](https://www.consul.io/) as the credential backend by configuring additional environment variables ([learn more](https://caddyserver.com/docs/consul)).
 
 
 ### Let's Encrypt
