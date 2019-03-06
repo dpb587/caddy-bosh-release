@@ -1,0 +1,25 @@
+name: caddy
+version: 0.5.0
+commit_hash: "5511483"
+uncommitted_changes: false
+jobs:
+- name: caddy
+  version: d0953c7850f9c140a40a4560cee1f70e439da491
+  fingerprint: d0953c7850f9c140a40a4560cee1f70e439da491
+  sha1: 28d1faf25a4116877a6996fca2977622dcff0dce
+packages:
+- name: caddy
+  version: 03418fc89e90ab790f8e020f64c4040e91f91858
+  fingerprint: 03418fc89e90ab790f8e020f64c4040e91f91858
+  sha1: 846627051ae133968b3a5371ba6b3922bebad791
+  dependencies:
+  - go
+- name: go
+  version: dc8ca39df9acd08c4cd8fea6032229b88c85c225
+  fingerprint: dc8ca39df9acd08c4cd8fea6032229b88c85c225
+  sha1: c7ae2aab6fb1bece44903304bc2c5508564232ed
+  dependencies: []
+license:
+  version: a127ee76035b6dfa56e8db327105e5e837aa27fe
+  fingerprint: a127ee76035b6dfa56e8db327105e5e837aa27fe
+  sha1: 7cece56555879ce7fa6c4e05c4ce298a095b809d
