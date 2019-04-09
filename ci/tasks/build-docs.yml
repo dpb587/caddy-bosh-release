@@ -83,6 +83,8 @@ run:
         img: /img/cff-bosh.png
         url: https://bosh.io/
       ThemeNavItems:
+      - title: docs
+        url: /docs/latest/
       - title: releases
         url: /releases/
       - title: github
