@@ -1,5 +1,6 @@
 groups:
 - jobs:
+  - build-docs
   - test-ubuntu-trusty
   - test-ubuntu-xenial
   - create-beta
@@ -11,6 +12,23 @@ groups:
   - bump-patch
   name: ci-state
 jobs:
+- name: build-docs
+  serial: true
+  plan:
+  - aggregate:
+    - get: repo
+      trigger: true
+    - get: artifacts
+      resource: repo-artifacts
+      trigger: true
+    - get: hugo-site
+      trigger: true
+  - task: build-docs
+    file: repo/ci/tasks/build-docs.yml
+  - put: repo-gh-pages
+    params:
+      repository: public
+      force: true
 - name: test-ubuntu-trusty
   serial: true
   serial_groups:
@@ -113,6 +131,18 @@ resources:
     uri: git@github.com:dpb587/caddy-bosh-release.git
     branch: master
     private_key: ((ci_deploy_ssh_key))
+- name: "repo-artifacts"
+  type: "git"
+  source:
+    uri: git@github.com:dpb587/caddy-bosh-release.git
+    branch: artifacts
+    private_key: ((ci_deploy_ssh_key))
+- name: "repo-gh-pages"
+  type: "git"
+  source:
+    uri: git@github.com:dpb587/caddy-bosh-release.git
+    branch: gh-pages
+    private_key: ((ci_deploy_ssh_key))
 - name: version
   type: semver
   source:
@@ -153,6 +183,10 @@ resources:
   type: bosh-io-stemcell
   source:
     name: bosh-warden-boshlite-ubuntu-xenial-go_agent
+- name: "hugo-site"
+  type: "git"
+  source:
+    uri: https://github.com/dpb587/hugo-balmy-site.git
 - name: slack-alert
   type: slack-notification
   source:
