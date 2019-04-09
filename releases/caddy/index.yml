@@ -13,4 +13,6 @@ builds:
     version: 0.5.0
   df8f197f-22ac-4463-5630-40888177b6c9:
     version: 0.2.0
+  ff61557f-2310-42a2-52ca-a3c9b8e738f1:
+    version: 0.5.1
 format-version: "2"
