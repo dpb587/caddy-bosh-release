@@ -44,7 +44,8 @@ The following policy restricts updates for a single `{{ZONE_ID}}`.
     {
       "Effect": "Allow",
       "Action": [
-        "route53:ChangeResourceRecordSets"
+        "route53:ChangeResourceRecordSets",
+        "route53:ListResourceRecordSets"
       ],
       "Resource": [
         "arn:aws:route53:::hostedzone/{{ZONE_ID}}"
