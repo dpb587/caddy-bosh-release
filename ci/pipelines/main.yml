@@ -1,7 +1,6 @@
 groups:
 - jobs:
   - build-docs
-  - test-ubuntu-trusty
   - test-ubuntu-xenial
   - create-beta
   - publish
@@ -29,18 +28,6 @@ jobs:
     params:
       repository: public
       force: true
-- name: test-ubuntu-trusty
-  serial: true
-  serial_groups:
-  - highload
-  plan:
-  - get: repo
-    trigger: true
-  - get: stemcell
-    resource: ubuntu-trusty-stemcell
-  - task: test
-    file: repo/ci/tasks/test-deploy.yml
-    privileged: true
 - name: test-ubuntu-xenial
   serial: true
   serial_groups:
@@ -58,7 +45,6 @@ jobs:
   - get: repo
     trigger: true
     passed:
-    - test-ubuntu-trusty
     - test-ubuntu-xenial
   - task: create-beta
     file: repo/ci/tasks/create-dev-release-tarball.yml
@@ -175,10 +161,6 @@ resources:
   source:
     << : *release_artifacts
     uri: git+ssh://git@github.com:dpb587/caddy-bosh-release.git//release/stable#artifacts
-- name: ubuntu-trusty-stemcell
-  type: bosh-io-stemcell
-  source:
-    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
 - name: ubuntu-xenial-stemcell
   type: bosh-io-stemcell
   source:
