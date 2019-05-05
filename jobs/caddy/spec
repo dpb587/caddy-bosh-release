@@ -17,6 +17,12 @@ properties:
   grace:
     description: "Maximum duration of graceful shutdown."
     default: 5s
+  http_port:
+    description: "Default port to use for HTTP."
+    default: 80
+  https_port:
+    description: "Default port to use for HTTPS."
+    default: 443
   env:
     description: "Environment variables to propagate to Caddy. Useful for configuring DNS solver."
     default: {}

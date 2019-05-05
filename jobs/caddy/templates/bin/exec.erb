@@ -20,6 +20,8 @@ setcap cap_net_bind_service=+ep /var/vcap/packages/caddy/bin/caddy
 exec chpst -u vcap:vcap /var/vcap/packages/caddy/bin/caddy \
   -conf /var/vcap/jobs/caddy/config/Caddyfile \
   -grace "<%= p('grace') %>" \
+  -http-port "<%= p('http_port') %>" \
+  -https-port "<%= p('https_port') %>" \
   -ca "<%= p('acme.ca.url') %>" \
   -agree \
   <% if_p('acme.email') do |v| %>-email "<%= v %>" <% end %>\
