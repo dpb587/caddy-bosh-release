@@ -1,0 +1,12 @@
+<metalink xmlns="urn:ietf:params:xml:ns:metalink">
+  <file name="caddy-0.2.0-on-ubuntu-trusty-stemcell-3586.23.tgz">
+    <hash type="sha-512">5c1c41508d9620dcbb309b306e8a39830d9d5434f7f9c95b9d3947759150bc761ea5fc928e8862dac9cd9cc49524c36742760d291a35909fd8bf3193b7963218</hash>
+    <hash type="sha-256">7955592ca9fd85a2abf932fd6603516ee762887184a8e711cc41117a89d150b1</hash>
+    <hash type="sha-1">08a891ea3917da314f1ca16f13fd89994145142b</hash>
+    <hash type="md5">995ec8c3008c56835dc7916c9b00e414</hash>
+    <size>126852257</size>
+    <url>https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/compiled-release/08a891ea3917da314f1ca16f13fd89994145142b</url>
+    <version>0.2.0</version>
+  </file>
+  <generator>boshua/contextualosmetalinkrepository</generator>
+</metalink>
