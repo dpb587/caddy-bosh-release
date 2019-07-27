@@ -1,11 +1,11 @@
 <metalink xmlns="urn:ietf:params:xml:ns:metalink">
   <file name="caddy-0.2.0-on-ubuntu-trusty-stemcell-3586.23.tgz">
-    <hash type="sha-512">d50382a47ff673c6748b6bbb22b5e006a1e53c8c4aeae3da23647f374a5241c8ed1d3517167fbd456095ed251e07adbe6d13e8016a6ff116bfb66dd6aed8306f</hash>
-    <hash type="sha-256">68f8c02a48f062557cb7a1903f654a2c4fbcf5e2041e90879ab4c293f433af45</hash>
-    <hash type="sha-1">caa9e29e47cb8b7b1eb85a6d8ad6abbb79981e72</hash>
-    <hash type="md5">eeb23261ef21fc058718c0bb3260ed4f</hash>
-    <size>126848216</size>
-    <url>https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/compiled-release/caa9e29e47cb8b7b1eb85a6d8ad6abbb79981e72</url>
+    <hash type="sha-512">e25c021795bd96265c0c3c9bc166773e0ebae760de493e7d86f95d18f25f05a3c1be2ffd6969a17bc7a849171414a53bdb1082449f1c1aacd2fe6e614cc1457a</hash>
+    <hash type="sha-256">1f46570e3027d66d0974336634dbd9f8607a74908f7ca00034b83f6cc0e406b5</hash>
+    <hash type="sha-1">fefe90d618fdc761e1dc63142d6f68d9bea65c24</hash>
+    <hash type="md5">bcfd6fa6195a2106fbe6b589af2a88a5</hash>
+    <size>126819701</size>
+    <url>https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/compiled-release/fefe90d618fdc761e1dc63142d6f68d9bea65c24</url>
     <version>0.2.0</version>
   </file>
   <generator>boshua/contextualosmetalinkrepository</generator>
