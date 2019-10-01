@@ -29,7 +29,7 @@ run:
 
     (
       echo
-      echo "Artifacts"
+      echo "**Artifacts**"
       echo
       echo "                                                              sha256  file"
     ) >> $notes
