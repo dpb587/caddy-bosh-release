@@ -15,7 +15,7 @@ run:
   - |
     set -euo pipefail
 
-    start-bosh
+    . /usr/local/bin/start-bosh
     source /tmp/local-bosh/director/env
     export BOSH_DEPLOYMENT=caddy
 
