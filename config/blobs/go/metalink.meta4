@@ -1,77 +1,77 @@
 <metalink xmlns="urn:ietf:params:xml:ns:metalink">
-  <file name="go1.14.6.src.tar.gz">
-    <hash type="sha-256">73fc9d781815d411928eccb92bf20d5b4264797be69410eac854babe44c94c09</hash>
-    <size>22534714</size>
-    <url>https://dl.google.com/go/go1.14.6.src.tar.gz</url>
+  <file name="go1.14.7.src.tar.gz">
+    <hash type="sha-256">064392433563660c73186991c0a315787688e7c38a561e26647686f89b6c30e3</hash>
+    <size>22534747</size>
+    <url>https://dl.google.com/go/go1.14.7.src.tar.gz</url>
   </file>
-  <file name="go1.14.6.darwin-amd64.tar.gz">
-    <hash type="sha-256">4832c7b6b9a2a225c557d5e8d66928230a5a8405e705ace53f6ed0ee79ddb3c4</hash>
-    <size>125100388</size>
-    <url>https://dl.google.com/go/go1.14.6.darwin-amd64.tar.gz</url>
+  <file name="go1.14.7.darwin-amd64.tar.gz">
+    <hash type="sha-256">9a71abeb3de60ed33c0f90368be814d140bc868963e90fbb98ea665335ffbf9a</hash>
+    <size>125102502</size>
+    <url>https://dl.google.com/go/go1.14.7.darwin-amd64.tar.gz</url>
   </file>
-  <file name="go1.14.6.darwin-amd64.pkg">
-    <hash type="sha-256">d3008e2ec9f94617d8deed01fa6630cc4d9c6f21a2d887b590f8d01a73ea7e30</hash>
-    <size>125471354</size>
-    <url>https://dl.google.com/go/go1.14.6.darwin-amd64.pkg</url>
+  <file name="go1.14.7.darwin-amd64.pkg">
+    <hash type="sha-256">0f215de06019a054a3da46a0722989986c956d719c7a0a8fc38a5f3c216d6f6b</hash>
+    <size>125466881</size>
+    <url>https://dl.google.com/go/go1.14.7.darwin-amd64.pkg</url>
   </file>
-  <file name="go1.14.6.freebsd-386.tar.gz">
-    <hash type="sha-256">9052feba69e2b3eec11696bef2fd226aa48f98185baae5b02160111ab72e1ff0</hash>
-    <size>104662504</size>
-    <url>https://dl.google.com/go/go1.14.6.freebsd-386.tar.gz</url>
+  <file name="go1.14.7.freebsd-386.tar.gz">
+    <hash type="sha-256">a834a20cc925fb8c1d00a7ac4b704a238902a5d23d29b3cc064d056f2eef3234</hash>
+    <size>104661967</size>
+    <url>https://dl.google.com/go/go1.14.7.freebsd-386.tar.gz</url>
   </file>
-  <file name="go1.14.6.freebsd-amd64.tar.gz">
-    <hash type="sha-256">4307d83dcef4af173f35fed9a91fc7daf0443cc8dc98fa60023b4f5234ed383d</hash>
-    <size>123686212</size>
-    <url>https://dl.google.com/go/go1.14.6.freebsd-amd64.tar.gz</url>
+  <file name="go1.14.7.freebsd-amd64.tar.gz">
+    <hash type="sha-256">8a0c69f67c85a8ec457ecb9f6dbc0ff2650b0490e84caf78c66ea6ce87bd527a</hash>
+    <size>123686628</size>
+    <url>https://dl.google.com/go/go1.14.7.freebsd-amd64.tar.gz</url>
   </file>
-  <file name="go1.14.6.linux-386.tar.gz">
-    <hash type="sha-256">17b2c4e26bd3a82a0a44499ae2d36e3f2155d0fe2f6b9a14ac6b7c5afac3ca6a</hash>
-    <size>104878716</size>
-    <url>https://dl.google.com/go/go1.14.6.linux-386.tar.gz</url>
+  <file name="go1.14.7.linux-386.tar.gz">
+    <hash type="sha-256">2f5793f10bb6b08eedecd376aa3d594e10193c6b5cf198ada46200259ff76547</hash>
+    <size>104890328</size>
+    <url>https://dl.google.com/go/go1.14.7.linux-386.tar.gz</url>
   </file>
-  <file name="go1.14.6.linux-amd64.tar.gz">
-    <hash type="sha-256">5c566ddc2e0bcfc25c26a5dc44a440fcc0177f7350c1f01952b34d5989a0d287</hash>
-    <size>123744187</size>
-    <url>https://dl.google.com/go/go1.14.6.linux-amd64.tar.gz</url>
+  <file name="go1.14.7.linux-amd64.tar.gz">
+    <hash type="sha-256">4a7fa60f323ee1416a4b1425aefc37ea359e9d64df19c326a58953a97ad41ea5</hash>
+    <size>123747311</size>
+    <url>https://dl.google.com/go/go1.14.7.linux-amd64.tar.gz</url>
   </file>
-  <file name="go1.14.6.linux-arm64.tar.gz">
-    <hash type="sha-256">291bccfd7d7f1915599bbcc90e49d9fccfcb0004b7c62a2f5cdf0f96a09d6a3e</hash>
-    <size>101067008</size>
-    <url>https://dl.google.com/go/go1.14.6.linux-arm64.tar.gz</url>
+  <file name="go1.14.7.linux-arm64.tar.gz">
+    <hash type="sha-256">fe5b6f6e441f3cb7b53ebf1a010bbebcb720ac98124984cfe2e51d72b8a58c71</hash>
+    <size>101068075</size>
+    <url>https://dl.google.com/go/go1.14.7.linux-arm64.tar.gz</url>
   </file>
-  <file name="go1.14.6.linux-armv6l.tar.gz">
-    <hash type="sha-256">cab39cc0fdf9731476a339af9d7bcd8fc661bfa323abb1ce9d1633fb31daeb07</hash>
-    <size>101812817</size>
-    <url>https://dl.google.com/go/go1.14.6.linux-armv6l.tar.gz</url>
+  <file name="go1.14.7.linux-armv6l.tar.gz">
+    <hash type="sha-256">6079eb82bcf24b33dda0e32777c7fdddcc3b1ec70e374308cc8311562449b107</hash>
+    <size>101810806</size>
+    <url>https://dl.google.com/go/go1.14.7.linux-armv6l.tar.gz</url>
   </file>
-  <file name="go1.14.6.linux-ppc64le.tar.gz">
-    <hash type="sha-256">8eb4c84e7b6aa9edb966c467dd6764d131a57d27afbd87cc8f6d10535df9e898</hash>
-    <size>99922866</size>
-    <url>https://dl.google.com/go/go1.14.6.linux-ppc64le.tar.gz</url>
+  <file name="go1.14.7.linux-ppc64le.tar.gz">
+    <hash type="sha-256">bd1f12a2271a6d1689bcf3ec01d123c81cbaca5d16c3f7df294a2d725ac4d3d1</hash>
+    <size>99923581</size>
+    <url>https://dl.google.com/go/go1.14.7.linux-ppc64le.tar.gz</url>
   </file>
-  <file name="go1.14.6.linux-s390x.tar.gz">
-    <hash type="sha-256">cb1f2d001ce15e51f7c4bd43f15045ea23d49268010bb981110242a532138749</hash>
-    <size>105380109</size>
-    <url>https://dl.google.com/go/go1.14.6.linux-s390x.tar.gz</url>
+  <file name="go1.14.7.linux-s390x.tar.gz">
+    <hash type="sha-256">ea570b3caa0c271da440f568ab646cfea80d712c51fb4d08189bb66bd5eb949c</hash>
+    <size>105357862</size>
+    <url>https://dl.google.com/go/go1.14.7.linux-s390x.tar.gz</url>
   </file>
-  <file name="go1.14.6.windows-386.zip">
-    <hash type="sha-256">d9463747f3d3671c91efdccfc96082793661da480c03907699b807a47850e0f5</hash>
-    <size>118052375</size>
-    <url>https://dl.google.com/go/go1.14.6.windows-386.zip</url>
+  <file name="go1.14.7.windows-386.zip">
+    <hash type="sha-256">73f929d7b99b141ea7d71f23ea269d74c68cce7e5fa68e41ada820f242e093a5</hash>
+    <size>118052837</size>
+    <url>https://dl.google.com/go/go1.14.7.windows-386.zip</url>
   </file>
-  <file name="go1.14.6.windows-386.msi">
-    <hash type="sha-256">286ee3b810fcbff542fe0457d6a4932ebe07c1ae279a70a88e887b3205b8f9f3</hash>
-    <size>103616512</size>
-    <url>https://dl.google.com/go/go1.14.6.windows-386.msi</url>
+  <file name="go1.14.7.windows-386.msi">
+    <hash type="sha-256">52df04dee059b0fc3c65af271daab2cfa5e1de57d2e204b53dc748f2224b5913</hash>
+    <size>103612416</size>
+    <url>https://dl.google.com/go/go1.14.7.windows-386.msi</url>
   </file>
-  <file name="go1.14.6.windows-amd64.zip">
-    <hash type="sha-256">4495c18579cd11192fc3483d535e567d71c1a5c5b42cec152ad519a3599c3bbb</hash>
-    <size>137820162</size>
-    <url>https://dl.google.com/go/go1.14.6.windows-amd64.zip</url>
+  <file name="go1.14.7.windows-amd64.zip">
+    <hash type="sha-256">ddf35c01f444f5698dee7b265c172abe29dd7138bef4415e6b60bf322ddcffa5</hash>
+    <size>137822119</size>
+    <url>https://dl.google.com/go/go1.14.7.windows-amd64.zip</url>
   </file>
-  <file name="go1.14.6.windows-amd64.msi">
-    <hash type="sha-256">6d3c766b1b57153ede6c763379884879d7fa779047549da07749a691d25cc9d2</hash>
-    <size>120741888</size>
-    <url>https://dl.google.com/go/go1.14.6.windows-amd64.msi</url>
+  <file name="go1.14.7.windows-amd64.msi">
+    <hash type="sha-256">2e0da6cc37b235f3bdeb91549ffeebe669391dadde7ff8d9da1921103dbfcb7b</hash>
+    <size>120745984</size>
+    <url>https://dl.google.com/go/go1.14.7.windows-amd64.msi</url>
   </file>
 </metalink>
