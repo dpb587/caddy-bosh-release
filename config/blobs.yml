@@ -2,7 +2,7 @@ caddy.tar.gz:
   size: 21594550
   object_id: ccb7244e-2d76-4475-4267-c43a1daefc0c
   sha: d8fe24ea5069dda11d972f30de9ac08b8532998a
-go/go1.14.7.linux-amd64.tar.gz:
-  size: 123747311
-  object_id: 486938ba-dadd-40f3-40bd-69762e275635
-  sha: 071477afbc8201b3df3c277e91e0812896cd8dac
+go/go1.15.linux-amd64.tar.gz:
+  size: 121136135
+  object_id: 2727caa3-044e-4f3c-47a9-78d483d98676
+  sha: 56c2a7ca701f791041b10e30710005836ea25faf
