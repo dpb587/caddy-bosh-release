@@ -1,0 +1,13 @@
+<metalink xmlns="urn:ietf:params:xml:ns:metalink">
+  <file name="caddy-0.7.2-dev.20201113T013038Z.commit.c70dd57.tgz">
+    <hash type="sha-512">529d375b91bedcb0bd48cc22aba7b71d5eb7dac5f64dd268f5c2b799e06c2dc45110ba3362c017263acb0af191cbf6b845d2371b6f00fe201be6e47228ad1480</hash>
+    <hash type="sha-256">4531ffcc020c3702c6b649eb08909933d1bfd47060b1350cc2d5fe8852304e93</hash>
+    <hash type="sha-1">12521f5974f72d47e0c3b2b915f6e182d6c91446</hash>
+    <hash type="md5">7cece8ccd678fe9637cafb5c2068b69e</hash>
+    <size>141855734</size>
+    <url>https://s3-external-1.amazonaws.com/dpb587-caddy-bosh-release-us-east-1/artifacts/release/12521f5974f72d47e0c3b2b915f6e182d6c91446</url>
+    <version>0.7.2-dev.20201113T013038Z.commit.c70dd57</version>
+  </file>
+  <generator>metalink-repository-resource/0.0.0</generator>
+  <published>2020-11-13T01:56:24.404510539Z</published>
+</metalink>
